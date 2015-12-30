@@ -41,17 +41,26 @@
                                 <state key="normal" title="Start">
                                     <color key="titleColor" red="0.21960784310000001" green="0.20000000000000001" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonStartPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y7W-2b-MHw"/>
+                                </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yW0-bp-2s7">
+                                <rect key="frame" x="225" y="538" width="150" height="2"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="VtL-8W-JuU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GPR-mR-ObJ"/>
                             <constraint firstItem="9ID-RV-M2L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="N0r-Ox-mtb"/>
+                            <constraint firstItem="yW0-bp-2s7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="O1E-20-DZt"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yW0-bp-2s7" secondAttribute="bottom" constant="60" id="p1j-28-W67"/>
                             <constraint firstItem="VtL-8W-JuU" firstAttribute="top" secondItem="9ID-RV-M2L" secondAttribute="bottom" constant="8" id="qKu-By-bJc"/>
                             <constraint firstItem="9ID-RV-M2L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zlx-kp-c6h"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="process" destination="yW0-bp-2s7" id="ybd-bA-Iis"/>
                         <outlet property="timeLabel" destination="i5v-80-E5r" id="Kyv-Op-OfD"/>
                     </connections>
                 </viewController>

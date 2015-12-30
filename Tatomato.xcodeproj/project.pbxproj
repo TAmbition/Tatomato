@@ -13,6 +13,7 @@
 		7A2939D11C3113B700DA508B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A2939D01C3113B700DA508B /* Assets.xcassets */; };
 		7A2939D41C3113B700DA508B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A2939D21C3113B700DA508B /* LaunchScreen.storyboard */; };
 		7AE67FC51C31183900F44475 /* Cycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE67FC41C31183900F44475 /* Cycle.swift */; };
+		7AE67FC71C32D88900F44475 /* Pomodoro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE67FC61C32D88900F44475 /* Pomodoro.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7A2939D31C3113B700DA508B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A2939D51C3113B700DA508B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AE67FC41C31183900F44475 /* Cycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cycle.swift; sourceTree = "<group>"; };
+		7AE67FC61C32D88900F44475 /* Pomodoro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pomodoro.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				7A2939C91C3113B700DA508B /* AppDelegate.swift */,
 				7A2939CB1C3113B700DA508B /* ViewController.swift */,
 				7AE67FC41C31183900F44475 /* Cycle.swift */,
+				7AE67FC61C32D88900F44475 /* Pomodoro.swift */,
 				7A2939CD1C3113B700DA508B /* Main.storyboard */,
 				7A2939D01C3113B700DA508B /* Assets.xcassets */,
 				7A2939D21C3113B700DA508B /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AE67FC71C32D88900F44475 /* Pomodoro.swift in Sources */,
 				7AE67FC51C31183900F44475 /* Cycle.swift in Sources */,
 				7A2939CC1C3113B700DA508B /* ViewController.swift in Sources */,
 				7A2939CA1C3113B700DA508B /* AppDelegate.swift in Sources */,
