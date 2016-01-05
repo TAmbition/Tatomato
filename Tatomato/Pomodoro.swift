@@ -12,10 +12,25 @@ class Pomodoro: NSObject {
     
     let defaults = NSUserDefaults.standardUserDefaults()
     
+    
+    var pomoTime = 1500 {
+        didSet {
+            setDefaults("pomo.pomoTime", value: pomoTime)
+        }
+    }
+    
+    var breakTime = 300 {
+        didSet {
+            setDefaults("pomo.breakTime", value: breakTime)
+        }
+    }
+    var longBreakTime = 1500 {
+        didSet {
+            setDefaults("pomo.longBreakTime", value: longBreakTime)
+        }
+    }
+    
     var pomoMode = 0
-    var pomoTime = 1500
-    var breakTime = 300
-    var longBreakTime = 1500
     var nowTime = 0
     var process: Float = 0
     var localCount = 0
@@ -23,7 +38,7 @@ class Pomodoro: NSObject {
     
     var timer: NSTimer?
     
-    var timerLable = "00:00"
+    var timerLable = "25:00"
     var timerMinLabel = "0"
     var timerSecLabel = "0"
     var timerHourLabel = "0"
@@ -41,6 +56,24 @@ class Pomodoro: NSObject {
         didSet {
             setDefaults("pomo.longBreakCount", value: longBreakCount)
         }
+    }
+    
+    override init() {
+        super.init()
+        
+        if getDefault("pomo.pomoTime") != nil {
+            pomoTime = getDefault("pomo.pomoTime") as? Int ?? 1500
+            breakTime = getDefault("pomo.breakTime") as? Int ?? 300
+            longBreakTime = getDefault("pomo.longBreakTime") as? Int ?? 1500
+            longBreakCount = getDefault("pomo.longBreakCount") as? Int ?? 4
+        } else {
+            setDefaults("pomo.pomoTime", value: pomoTime)
+            setDefaults("pomo.breakTime", value: breakTime)
+            setDefaults("pomo.longBreakTime", value: longBreakTime)
+            setDefaults("pomo.longBreakCount", value: longBreakCount)
+        }
+        
+        updateDisplay()
     }
     
     func updateDisplay() {
@@ -65,11 +98,11 @@ class Pomodoro: NSObject {
         
         var minute = "\((nowUse - (nowUse % 60)) / 60)"
         var second = "\(nowUse % 60)"
-        if nowUse % 60 < 10 {
+        if Int(second) < 10 {
             second = "0" + second
         }
         
-        if (nowUse - (nowUse % 60)) / 60 < 10 {
+        if Int(minute) < 10 {
             minute = "0" + minute
         }
         
@@ -120,6 +153,7 @@ class Pomodoro: NSObject {
                 nowTime -= 100
             } else {
                 nowTime--
+                print(nowTime)
             }
         }
         updateDisplay()

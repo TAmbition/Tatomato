@@ -9,38 +9,110 @@
 import UIKit
 
 class ViewController: UIViewController {
+
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var timerView: Cycle!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var breakButton: UIButton!
+    
+    let defaults = NSUserDefaults.standardUserDefaults()
+    let tapToStop = UITapGestureRecognizer()
     
     var timer: NSTimer?
     var pomodoroClass = Pomodoro()
-
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var process: UIProgressView!
+    
+    var process: Float {
+        get {
+            return timerView.valueProgress / 67 * 100
+        }
+        set {
+            timerView.valueProgress = newValue / 100 * 67
+            updateUI()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        timeLabel.text = pomodoroClass.timerLable
+        updateUI()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
 
     @IBAction func buttonStartPressed(sender: AnyObject) {
+        breakButton.hidden = true
         if pomodoroClass.pomoMode == 0 {
             timer?.invalidate()
             timer = nil
-            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "pomoing:", userInfo: nil, repeats: true)
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "pomoing:", userInfo: nil, repeats: true)
         }
+        
         pomodoroClass.start()
         print("Pomodoro Started")
+        
+        
+        tapToStop.addTarget(self, action: "showAlert:")
+        startButton.addGestureRecognizer(tapToStop)
+        
+    }
+    
+    @IBAction func breakButtonPressed(sender: AnyObject) {
+        
+    }
+    
+    func showAlert(sender: UITapGestureRecognizer) {
+        let alertController = UIAlertController(title: "TAmbition", message: "Are you fuckin' sure", preferredStyle: .Alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        let stopAction = UIAlertAction(title: "Stop", style: .Default, handler: { _ in
+                self.stopPomo()
+                self.pomodoroClass.updateDisplay()
+        })
+        alertController.addAction(stopAction)
+        
+        presentViewController(alertController, animated: true, completion: { _ in
+            self.startButton.removeGestureRecognizer(self.tapToStop)
+        })
     }
     
     func pomoing(timer: NSTimer) {
-        process.progress = pomodoroClass.process / 100
+        process = pomodoroClass.process
+    }
+    
+    func updateUI() {
+        timerView.setNeedsDisplay()
         timeLabel.text = pomodoroClass.timerLable
     }
-
+    
+    func stopPomo() {
+        print("Pomo Stop")
+        pomodoroClass.stop()
+        stopTimer()
+        process = 0
+        timeLabel.text = "25:00"
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    func getDefaults(key: String) -> AnyObject? {
+        if key != "" {
+            return defaults.objectForKey(key)
+        } else {
+            return nil
+        }
+    }
+    
+    func setDefaults(key: String, value: AnyObject) {
+        if key != "" {
+            defaults.setObject(value, forKey: key)
+        }
+    }
 }
 
