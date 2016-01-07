@@ -17,8 +17,10 @@ class ViewController: UIViewController {
     
     let defaults = NSUserDefaults.standardUserDefaults()
     let tapToStop = UITapGestureRecognizer()
+    let localNotification = UILocalNotification()
     
     var timer: NSTimer?
+    var endDate: NSDate?
     var pomodoroClass = Pomodoro()
     
     var process: Float {
@@ -52,7 +54,6 @@ class ViewController: UIViewController {
         
         pomodoroClass.start()
         print("Pomodoro Started")
-        
         
         tapToStop.addTarget(self, action: "showAlert:")
         startButton.addGestureRecognizer(tapToStop)
@@ -93,12 +94,22 @@ class ViewController: UIViewController {
         pomodoroClass.stop()
         stopTimer()
         process = 0
-        timeLabel.text = "25:00"
     }
     
     func stopTimer() {
         timer?.invalidate()
         timer = nil
+    }
+    
+    func timeNotification() {
+        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+        let date = NSDate(timeIntervalSinceNow: 10)
+        localNotification.fireDate = date
+        localNotification.timeZone = NSTimeZone.defaultTimeZone()
+        localNotification.alertBody = "Fuck you we do what we want"
+        localNotification.soundName = UILocalNotificationDefaultSoundName
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
     
     func getDefaults(key: String) -> AnyObject? {

@@ -6,12 +6,12 @@
 //  Copyright © 2015年 胡雨阳. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import AVFoundation
 
 class Pomodoro: NSObject {
     
     let defaults = NSUserDefaults.standardUserDefaults()
-    
     
     var pomoTime = 1500 {
         didSet {
@@ -29,6 +29,11 @@ class Pomodoro: NSObject {
             setDefaults("pomo.longBreakTime", value: longBreakTime)
         }
     }
+    var enableTimerSound = true {
+        didSet {
+            setDefaults("pomo.enableTimerSound", value: enableTimerSound)
+        }
+    }
     
     var pomoMode = 0
     var nowTime = 0
@@ -37,6 +42,7 @@ class Pomodoro: NSObject {
     var isDebug = false
     
     var timer: NSTimer?
+    var soundPlayer: AVAudioPlayer?
     
     var timerLable = "25:00"
     var timerMinLabel = "0"
@@ -66,11 +72,13 @@ class Pomodoro: NSObject {
             breakTime = getDefault("pomo.breakTime") as? Int ?? 300
             longBreakTime = getDefault("pomo.longBreakTime") as? Int ?? 1500
             longBreakCount = getDefault("pomo.longBreakCount") as? Int ?? 4
+            enableTimerSound = getDefault("pomo.enableTimerSound") as? Bool ?? true
         } else {
             setDefaults("pomo.pomoTime", value: pomoTime)
             setDefaults("pomo.breakTime", value: breakTime)
             setDefaults("pomo.longBreakTime", value: longBreakTime)
             setDefaults("pomo.longBreakCount", value: longBreakCount)
+            setDefaults("ppomo.enableTimerSound", value: enableTimerSound)
         }
         
         updateDisplay()
@@ -78,6 +86,8 @@ class Pomodoro: NSObject {
     
     func updateDisplay() {
         switch pomoMode {
+        case 0:
+            process = 0
         case 1:
             process = Float(nowTime) / Float(pomoTime) * 100
         case 2:
@@ -123,14 +133,25 @@ class Pomodoro: NSObject {
         if nowTime <= 0 {
             stopTimer()
             if pomoMode == 1 {
-                print("Pomo over")
                 if longBreakEnable {
                     if localCount == longBreakCount - 1 {
+                        pomoMode = 3
+                        nowTime = longBreakTime
+                        print("Pomo Over1")
+                        playSound()
                         longBreakStart()
                     } else {
+                        pomoMode++
+                        nowTime = breakTime
+                        print("Pomo Over2")
+                        playSound()
                         breakStart()
                     }
                 } else {
+                    pomoMode++
+                    nowTime = breakTime
+                    print("Pomo Over3")
+                    playSound()
                     breakStart()
                 }
             } else if pomoMode == 2 {
@@ -142,11 +163,13 @@ class Pomodoro: NSObject {
                     pomoMode = 0
                 }
                 print("Break Over")
+                playSound()
             } else if pomoMode == 3 {
                 pomoMode = 0
                 localCount = 0
                 print("Long Break Over")
                 start()
+                playSound()
             }
         } else {
             if isDebug {
@@ -162,21 +185,17 @@ class Pomodoro: NSObject {
     func start() {
         if pomoMode == 0 {
             pomoMode = 1
-            nowTime = pomoTime
+            nowTime = 10
             print("PomoTime: \(pomoTime) BreakTime: \(breakTime)")
             timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "updateTimer:", userInfo: nil, repeats: true)
         }
     }
     
     func breakStart() {
-        pomoMode = 2
-        nowTime = breakTime
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "updateTimer:", userInfo: nil, repeats: true)
     }
     
     func longBreakStart() {
-        pomoMode = 3
-        nowTime = longBreakTime
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "updateTimer:", userInfo: nil, repeats: true)
     }
     
@@ -185,12 +204,38 @@ class Pomodoro: NSObject {
         pomoMode = 0
         nowTime = 0
         localCount = 0
+        updateDisplay()
     }
     
     func stopTimer() {
         timer?.invalidate()
         timer = nil
         process = 0
+        
+    }
+    
+    func playSound() {
+        let stopSoundPath = NSBundle.mainBundle().pathForResource("Stop", ofType: "mp3")
+        let stopSoundUrl = NSURL(fileURLWithPath: stopSoundPath!)
+        
+        stopSound() // 记得检测不需要判断时可不可以响铃
+        
+        if enableTimerSound {
+            do {
+                soundPlayer = try AVAudioPlayer(contentsOfURL: stopSoundUrl)
+            } catch _ { }
+            soundPlayer!.numberOfLoops = 0
+            soundPlayer!.volume = 0.3
+            soundPlayer!.prepareToPlay()
+            soundPlayer!.play()
+        }
+        
+    }
+    
+    func stopSound() {
+        if soundPlayer != nil {
+            soundPlayer!.stop()
+        }
     }
     
     func getDefault(key: String) -> AnyObject? {
