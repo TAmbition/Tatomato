@@ -14,23 +14,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-//        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil)
-//        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
-//        
-//        let date = NSDate(timeIntervalSinceNow: 10)
-//        let localNotification = UILocalNotification()
-//        localNotification.fireDate = date
-//        localNotification.timeZone = NSTimeZone.defaultTimeZone()
-//        localNotification.alertBody = "I'm a local Notification!"
-//        localNotification.soundName = UILocalNotificationDefaultSoundName
-//        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        
+        // 修改 UINavigation Bar 颜色 & 字体
+        UINavigationBar.appearance().barTintColor = UIColor(red: 56.0/255.0, green: 51.0/255.0, blue: 76.0/255.0, alpha: 1.0)
+        UINavigationBar.appearance().tintColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 1.0)
+        
+        if let barFont = UIFont(name: "Avenir-Light", size: 24.0) {
+            UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 1.0), NSFontAttributeName: barFont]
+        }
+        
+        // 修改 UIStatusBar 颜色
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil)
+        
+        
+        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+        
+        let date = NSDate(timeIntervalSinceNow: 10)
+        let localNotification = UILocalNotification()
+        localNotification.fireDate = date
+        localNotification.timeZone = NSTimeZone.defaultTimeZone()
+        localNotification.alertBody = "I'm a local Notification!"
+        localNotification.soundName = UILocalNotificationDefaultSoundName
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
         
         return true
     }
     
-//    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-//        print("didReceiveLocalNotification \(notification)")
-//    }
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        print("didReceiveLocalNotification \(notification)")
+    }
 
     func applicationWillResignActive(application: UIApplication) {
         

@@ -101,16 +101,6 @@ class ViewController: UIViewController {
         timer = nil
     }
     
-    func timeNotification() {
-        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil)
-        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
-        let date = NSDate(timeIntervalSinceNow: 10)
-        localNotification.fireDate = date
-        localNotification.timeZone = NSTimeZone.defaultTimeZone()
-        localNotification.alertBody = "Fuck you we do what we want"
-        localNotification.soundName = UILocalNotificationDefaultSoundName
-        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
-    }
     
     func getDefaults(key: String) -> AnyObject? {
         if key != "" {

@@ -218,7 +218,7 @@ class Pomodoro: NSObject {
         let stopSoundPath = NSBundle.mainBundle().pathForResource("Stop", ofType: "mp3")
         let stopSoundUrl = NSURL(fileURLWithPath: stopSoundPath!)
         
-        stopSound() // 记得检测不需要判断时可不可以响铃
+        stopSound()
         
         if enableTimerSound {
             do {
