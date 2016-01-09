@@ -18,7 +18,6 @@ class Pomodoro: NSObject {
             setDefaults("pomo.pomoTime", value: pomoTime)
         }
     }
-    
     var breakTime = 300 {
         didSet {
             setDefaults("pomo.breakTime", value: breakTime)
@@ -180,6 +179,47 @@ class Pomodoro: NSObject {
             }
         }
         updateDisplay()
+    }
+    
+    func getStringOfTime(select: Int) -> Int {
+        var resultCount = 0
+        var nowUse = 0
+        switch select {
+        case 0:
+            nowUse = pomoTime
+        case 1:
+            nowUse = breakTime
+        case 2:
+            nowUse = longBreakTime
+        default:
+            nowUse = pomoTime
+        }
+        
+        var minute = "\((nowUse - (nowUse % 60)) / 60)"
+        var second = "\(nowUse % 60)"
+        timerSecLabel = second
+        resultCount++
+        if nowUse % 60 < 10 {
+            second = "0" + second
+        }
+        timerMinLabel = minute
+        if nowUse >= 60 {
+            resultCount++
+        }
+        if (nowUse - (nowUse % 60)) / 60 < 10 {
+            minute = "0" + second
+        }
+        if Int(minute) > 60 {
+            var hour = "\((Int(minute)! - (Int(minute)! % 60)) / 60)"
+            minute = "\(Int(minute)! % 60)"
+            timerMinLabel = minute
+            timerHourLabel = hour
+            resultCount++
+            if Int(hour) < 10 {
+                hour = "0" + hour
+            }
+        }
+        return resultCount
     }
     
     func start() {
