@@ -15,15 +15,17 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var workTimeSetting: UILabel!
     @IBOutlet weak var breakTimeSetting: UILabel!
     @IBOutlet weak var pickerView: UIPickerView!
-
-    var workTimes = [10, 15, 20, 25, 30, 35, 40, 45, 50, 55]
-    var breakTimes = [1, 2, 5, 10, 25]
-    
-    var pomodoro: Pomodoro?
-    var chooseWorkLabel = false
     
     let workTimeLabel = UITapGestureRecognizer()
     let breakTimeLabel = UITapGestureRecognizer()
+    
+    var workTimes = [25, 30, 45, 60, 90]
+    var breakTimes = [5, 10, 25]
+    
+    var pomodoro = Pomodoro()
+    var chooseWorkLabel = false
+    var currentWorkDuration = NSUserDefaults.standardUserDefaults().integerForKey("pomo.pomoTime")
+    var currentBreakDuration = NSUserDefaults.standardUserDefaults().integerForKey("pomo.breakTime")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +34,26 @@ class SettingViewController: UIViewController {
         
         workTimeSetting.tag = 1
         breakTimeSetting.tag = 2
-        workTimeLabel.addTarget(self, action: "test:")
+        workTimeLabel.addTarget(self, action: "changePickerView:")
         workTimeSetting.addGestureRecognizer(workTimeLabel)
-        breakTimeLabel.addTarget(self, action: "test:")
+        breakTimeLabel.addTarget(self, action: "changePickerView:")
         breakTimeSetting.addGestureRecognizer(breakTimeLabel)
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        workTimeSetting.text = "\(currentWorkDuration) min"
+        breakTimeSetting.text = "\(currentBreakDuration) min"
+    }
+    
+    @IBAction func saveButton(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    @IBAction func cancelButton(sender: UIBarButtonItem) {
+        
+    }
+    
 }
 
 extension SettingViewController: UIPickerViewDataSource, UIPickerViewDelegate {
@@ -69,28 +86,31 @@ extension SettingViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         if chooseWorkLabel {
             minutes = workTimes[row]
             workTimeSetting.text = "\(minutes) min"
+            pomodoro.pomoTime = minutes * 60
+            NSUserDefaults.standardUserDefaults().setInteger(minutes, forKey: "pomo.pomoTime")
         } else {
             minutes = breakTimes[row]
             breakTimeSetting.text = "\(minutes) min"
+            pomodoro.breakTime = minutes * 60
+            NSUserDefaults.standardUserDefaults().setInteger(minutes, forKey: "pomo.breakTime")
         }
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
     }
     
-    func test(sender: UITapGestureRecognizer) {
+    func changePickerView(sender: UITapGestureRecognizer) {
         print("OK")
-        let number = sender.view!
-        
-        switch number {
+        let label = sender.view!
+        switch label {
         case workTimeSetting:
             chooseWorkLabel = true
             pickerView.reloadAllComponents()
-            pickerView.selectRow(0, inComponent: 0, animated: true)
         case breakTimeSetting:
             chooseWorkLabel = false
             pickerView.reloadAllComponents()
-            pickerView.selectRow(0, inComponent: 0, animated: true)
         default:
             break
         }
-        
+        pickerView.selectRow(0, inComponent: 0, animated: false)
     }
 }

@@ -225,7 +225,7 @@ class Pomodoro: NSObject {
     func start() {
         if pomoMode == 0 {
             pomoMode = 1
-            nowTime = 10
+            nowTime = pomoTime
             print("PomoTime: \(pomoTime) BreakTime: \(breakTime)")
             timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "updateTimer:", userInfo: nil, repeats: true)
         }

@@ -4,6 +4,19 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="AvenirNext.ttc">
+            <string>AvenirNext-Medium</string>
+            <string>AvenirNext-Regular</string>
+            <string>AvenirNext-Regular</string>
+            <string>AvenirNext-Regular</string>
+            <string>AvenirNext-Regular</string>
+            <string>AvenirNext-Regular</string>
+            <string>AvenirNext-Regular</string>
+            <string>AvenirNext-Regular</string>
+            <string>AvenirNext-Regular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -70,14 +83,25 @@
                                     <segue destination="CqL-iH-6Cw" kind="show" id="uKy-xC-5H1"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sk4-xa-eXv">
+                                <rect key="frame" x="20" y="20" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="TKN-Rn-oeU" kind="show" id="ScM-NY-8bl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.2196078431372549" green="0.20000000000000001" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="VtL-8W-JuU" firstAttribute="top" secondItem="9ID-RV-M2L" secondAttribute="bottom" id="7f2-Lv-wrs"/>
+                            <constraint firstItem="Sk4-xa-eXv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="II8-xp-iX1"/>
                             <constraint firstItem="9ID-RV-M2L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="N0r-Ox-mtb"/>
                             <constraint firstAttribute="trailing" secondItem="iel-6x-zGI" secondAttribute="trailing" constant="20" id="Tgj-06-zbf"/>
                             <constraint firstItem="iel-6x-zGI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Zuo-jp-mQo"/>
                             <constraint firstItem="VtL-8W-JuU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c1B-8O-9B5"/>
+                            <constraint firstItem="Sk4-xa-eXv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="rdv-yR-tYl"/>
                             <constraint firstItem="9ID-RV-M2L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zlx-kp-c6h"/>
                         </constraints>
                     </view>
@@ -91,6 +115,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="305" y="367"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Epc-GN-HaK">
+            <objects>
+                <viewController id="TKN-Rn-oeU" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XWP-eU-X0D"/>
+                        <viewControllerLayoutGuide type="bottom" id="T7d-7U-LsH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MIU-Mk-mvd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.pic" translatesAutoresizingMaskIntoConstraints="NO" id="f5P-Tu-FRY">
+                                <rect key="frame" x="230" y="60" width="140" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="aAe-Fj-dhv"/>
+                                    <constraint firstAttribute="width" constant="140" id="cU5-qI-ksB"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wML-0b-fws">
+                                <rect key="frame" x="269" y="229" width="63" height="40"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                <state key="normal" title="Github">
+                                    <color key="titleColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Je9-aV-hAz">
+                                <rect key="frame" x="202" y="277" width="196" height="40"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                <state key="normal" title="How the app for you?">
+                                    <color key="titleColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.2196078431372549" green="0.20000000000000001" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="f5P-Tu-FRY" firstAttribute="top" secondItem="XWP-eU-X0D" secondAttribute="bottom" constant="40" id="S83-oI-Ar7"/>
+                            <constraint firstItem="f5P-Tu-FRY" firstAttribute="centerX" secondItem="MIU-Mk-mvd" secondAttribute="centerX" id="Uf5-Jj-LLK"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ilb-xY-Wap" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="1114"/>
         </scene>
         <!--Setting-->
         <scene sceneID="yPK-1G-BxJ">
@@ -148,7 +217,18 @@
                             <constraint firstAttribute="trailing" secondItem="Yyz-9i-XQn" secondAttribute="trailing" constant="20" id="uKr-2S-5u1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Setting" id="RpY-Sj-I3T"/>
+                    <navigationItem key="navigationItem" title="Setting" id="RpY-Sj-I3T">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="SGk-09-0lm">
+                            <connections>
+                                <action selector="cancelButton:" destination="3Dm-k9-amT" id="LxS-bs-RhJ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="TQa-kU-Dex">
+                            <connections>
+                                <action selector="saveButton:" destination="3Dm-k9-amT" id="5N9-bk-LaL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="breakLabel" destination="S8a-li-9yr" id="yzT-H0-IJg"/>
                         <outlet property="breakTimeSetting" destination="qOx-hn-Wfb" id="5LI-2h-3Dd"/>
@@ -181,6 +261,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="1.pic" width="1125" height="1125"/>
         <image name="settings1x" width="20" height="20"/>
     </resources>
 </document>
