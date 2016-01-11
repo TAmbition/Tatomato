@@ -33,8 +33,8 @@ class ViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
         updateUI()
     }
@@ -85,8 +85,8 @@ class ViewController: UIViewController {
     }
     
     func updateUI() {
+        timeLabel.text = pomodoroClass.timerLabel
         timerView.setNeedsDisplay()
-        timeLabel.text = pomodoroClass.timerLable
     }
     
     func stopPomo() {

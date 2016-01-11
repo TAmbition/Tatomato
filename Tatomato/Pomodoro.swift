@@ -43,7 +43,7 @@ class Pomodoro: NSObject {
     var timer: NSTimer?
     var soundPlayer: AVAudioPlayer?
     
-    var timerLable = "25:00"
+    var timerLabel = "25:00"
     var timerMinLabel = "0"
     var timerSecLabel = "0"
     var timerHourLabel = "0"
@@ -79,7 +79,6 @@ class Pomodoro: NSObject {
             setDefaults("pomo.longBreakCount", value: longBreakCount)
             setDefaults("ppomo.enableTimerSound", value: enableTimerSound)
         }
-        
         updateDisplay()
     }
     
@@ -98,7 +97,6 @@ class Pomodoro: NSObject {
         }
         
         var nowUse = 0
-        
         if pomoMode == 0 {
             nowUse = pomoTime
         } else {
@@ -110,11 +108,9 @@ class Pomodoro: NSObject {
         if Int(second) < 10 {
             second = "0" + second
         }
-        
         if Int(minute) < 10 {
             minute = "0" + minute
         }
-        
         if Int(minute) > 60 {
             var hour = "\((Int(minute)! - (Int(minute)! % 60)) / 60)"
             minute = "\(Int(minute)! % 60)"
@@ -122,9 +118,9 @@ class Pomodoro: NSObject {
             if Int(hour) < 10 {
                 hour = "0" + hour
             }
-            timerLable = hour + ":" + minute
+            timerLabel = hour + ":" + minute
         } else {
-            timerLable = minute + ":" + second
+            timerLabel = minute + ":" + second
         }
     }
     
