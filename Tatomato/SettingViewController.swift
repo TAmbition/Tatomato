@@ -18,14 +18,15 @@ class SettingViewController: UIViewController {
     
     let workTimeLabel = UITapGestureRecognizer()
     let breakTimeLabel = UITapGestureRecognizer()
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     var workTimes = [25, 30, 45, 60, 90]
     var breakTimes = [5, 10, 25]
     
     var pomodoro = Pomodoro()
     var chooseWorkLabel = true
-    var currentWorkDuration = NSUserDefaults.standardUserDefaults().integerForKey("pomo.pomoTime")
-    var currentBreakDuration = NSUserDefaults.standardUserDefaults().integerForKey("pomo.breakTime")
+    var pomoTime = NSUserDefaults.standardUserDefaults().integerForKey("pomo.pomoTime")
+    var breakTime = NSUserDefaults.standardUserDefaults().integerForKey("pomo.breakTime")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,12 +44,12 @@ class SettingViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        workTimeSetting.text = "\(currentWorkDuration / 60) min"
-        breakTimeSetting.text = "\(currentBreakDuration / 60) min"
+    
+        workTimeSetting.text = "\(pomoTime / 60) min"
+        breakTimeSetting.text = "\(breakTime / 60) min"
     }
     
     @IBAction func saveButton(sender: UIBarButtonItem) {
-        
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -87,14 +88,16 @@ extension SettingViewController: UIPickerViewDataSource, UIPickerViewDelegate {
             minutes = workTimes[row]
             workTimeSetting.text = "\(minutes) min"
             pomodoro.pomoTime = minutes * 60
-            NSUserDefaults.standardUserDefaults().setInteger(minutes * 60, forKey: "pomo.pomoTime")
+            defaults.setInteger(pomodoro.pomoTime, forKey: "pomo.pomoTime")
+            print("\(pomodoro.pomoTime)")
         } else {
             minutes = breakTimes[row]
             breakTimeSetting.text = "\(minutes) min"
             pomodoro.breakTime = minutes * 60
-            NSUserDefaults.standardUserDefaults().setInteger(minutes * 60, forKey: "pomo.breakTime")
+            defaults.setInteger(pomodoro.breakTime, forKey: "pomo.breakTime")
         }
-        NSUserDefaults.standardUserDefaults().synchronize()
+        defaults.synchronize()
+        print("\(defaults)")
     }
     
     func changePickerView(sender: UITapGestureRecognizer) {

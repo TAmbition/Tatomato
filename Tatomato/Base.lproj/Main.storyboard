@@ -116,10 +116,10 @@
             </objects>
             <point key="canvasLocation" x="305" y="367"/>
         </scene>
-        <!--View Controller-->
+        <!--About View Controller-->
         <scene sceneID="Epc-GN-HaK">
             <objects>
-                <viewController id="TKN-Rn-oeU" sceneMemberID="viewController">
+                <viewController id="TKN-Rn-oeU" customClass="AboutViewController" customModule="Tatomato" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XWP-eU-X0D"/>
                         <viewControllerLayoutGuide type="bottom" id="T7d-7U-LsH"/>

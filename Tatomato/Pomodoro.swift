@@ -82,6 +82,13 @@ class Pomodoro: NSObject {
         updateDisplay()
     }
     
+    func refreshTime() {
+        pomoTime = getDefault("pomo.pomoTime") as! Int
+        breakTime = getDefault("pomo.breakTime") as! Int
+        
+        updateDisplay()
+    }
+    
     func updateDisplay() {
         switch pomoMode {
         case 0:

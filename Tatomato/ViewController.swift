@@ -85,6 +85,7 @@ class ViewController: UIViewController {
     }
     
     func updateUI() {
+        pomodoroClass.refreshTime()
         timeLabel.text = pomodoroClass.timerLabel
         timerView.setNeedsDisplay()
     }
@@ -99,21 +100,6 @@ class ViewController: UIViewController {
     func stopTimer() {
         timer?.invalidate()
         timer = nil
-    }
-    
-    
-    func getDefaults(key: String) -> AnyObject? {
-        if key != "" {
-            return defaults.objectForKey(key)
-        } else {
-            return nil
-        }
-    }
-    
-    func setDefaults(key: String, value: AnyObject) {
-        if key != "" {
-            defaults.setObject(value, forKey: key)
-        }
     }
 }
 

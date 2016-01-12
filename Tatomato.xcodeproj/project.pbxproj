@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A1BE1E41C4408FF002130CF /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1BE1E31C4408FF002130CF /* AboutViewController.swift */; };
 		7A2939CA1C3113B700DA508B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2939C91C3113B700DA508B /* AppDelegate.swift */; };
 		7A2939CC1C3113B700DA508B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2939CB1C3113B700DA508B /* ViewController.swift */; };
 		7A2939CF1C3113B700DA508B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A2939CD1C3113B700DA508B /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A1BE1E31C4408FF002130CF /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		7A2939C61C3113B700DA508B /* Tatomato.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tatomato.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A2939C91C3113B700DA508B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A2939CB1C3113B700DA508B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				7AE67FC41C31183900F44475 /* Cycle.swift */,
 				7AE67FC61C32D88900F44475 /* Pomodoro.swift */,
 				7A52A2BB1C3EA559009E82CC /* SettingViewController.swift */,
+				7A1BE1E31C4408FF002130CF /* AboutViewController.swift */,
 				7A2939CD1C3113B700DA508B /* Main.storyboard */,
 				7A2939D01C3113B700DA508B /* Assets.xcassets */,
 				7A2939D21C3113B700DA508B /* LaunchScreen.storyboard */,
@@ -157,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A1BE1E41C4408FF002130CF /* AboutViewController.swift in Sources */,
 				7A52A2BC1C3EA55A009E82CC /* SettingViewController.swift in Sources */,
 				7AE67FC71C32D88900F44475 /* Pomodoro.swift in Sources */,
 				7AE67FC51C31183900F44475 /* Cycle.swift in Sources */,

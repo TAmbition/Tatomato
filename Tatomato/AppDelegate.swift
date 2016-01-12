@@ -25,18 +25,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // 修改 UIStatusBar 颜色
         UIApplication.sharedApplication().statusBarStyle = .LightContent
-        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil)
+//        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil)
         
         
-        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
-        
-        let date = NSDate(timeIntervalSinceNow: 10)
-        let localNotification = UILocalNotification()
-        localNotification.fireDate = date
-        localNotification.timeZone = NSTimeZone.defaultTimeZone()
-        localNotification.alertBody = "I'm a local Notification!"
-        localNotification.soundName = UILocalNotificationDefaultSoundName
-        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+//        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+//        
+//        let date = NSDate(timeIntervalSinceNow: 10)
+//        let localNotification = UILocalNotification()
+//        localNotification.fireDate = date
+//        localNotification.timeZone = NSTimeZone.defaultTimeZone()
+//        localNotification.alertBody = "I'm a local Notification!"
+//        localNotification.soundName = UILocalNotificationDefaultSoundName
+//        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
         
         return true
     }
