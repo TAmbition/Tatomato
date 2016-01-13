@@ -78,7 +78,7 @@ extension SettingViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         } else {
             minutes = breakTimes[row]
         }
-        let attributedTitle = NSAttributedString(string: "\(minutes) min", attributes: [NSForegroundColorAttributeName : UIColor.yellowColor()])
+        let attributedTitle = NSAttributedString(string: "\(minutes) min", attributes: [NSForegroundColorAttributeName : UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 1.0)])
         return attributedTitle
     }
     

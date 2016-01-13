@@ -13,7 +13,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var timerView: Cycle!
     @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var breakButton: UIButton!
     
     let defaults = NSUserDefaults.standardUserDefaults()
     let tapToStop = UITapGestureRecognizer()
@@ -35,7 +34,6 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
         updateUI()
     }
 
@@ -45,7 +43,6 @@ class ViewController: UIViewController {
     }
 
     @IBAction func buttonStartPressed(sender: AnyObject) {
-        breakButton.hidden = true
         if pomodoroClass.pomoMode == 0 {
             timer?.invalidate()
             timer = nil
@@ -57,10 +54,6 @@ class ViewController: UIViewController {
         
         tapToStop.addTarget(self, action: "showAlert:")
         startButton.addGestureRecognizer(tapToStop)
-        
-    }
-    
-    @IBAction func breakButtonPressed(sender: AnyObject) {
         
     }
     
