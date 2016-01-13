@@ -16,19 +16,24 @@ class AboutViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    @IBAction func okButtonTapped(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func githubButton(sender: UIButton) {
         openGithub()
     }
     
-    @IBAction func aboutTAmbition(sender: UIButton) {
+    @IBAction func blogButton(sender: UIButton) {
         openBlog()
     }
+    
+    @IBAction func openZhihu(sender: UIButton) {
+        openZhihu()
+    }
+    
     
     func openGithub() {
         let safariController = SFSafariViewController(URL: NSURL(string: "https://github.com/TAmbition")!)
@@ -37,6 +42,11 @@ class AboutViewController: UIViewController {
     
     func openBlog() {
         let safariController = SFSafariViewController(URL: NSURL(string: "http://tambition.me")!)
+        presentViewController(safariController, animated: true, completion: nil)
+    }
+    
+    func openZhihu() {
+        let safariController = SFSafariViewController(URL: NSURL(string: "https://www.zhihu.com/people/TAmbitionBBB")!)
         presentViewController(safariController, animated: true, completion: nil)
     }
     

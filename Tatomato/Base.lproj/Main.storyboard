@@ -13,7 +13,6 @@
             <string>AvenirNext-Regular</string>
             <string>AvenirNext-Regular</string>
             <string>AvenirNext-Regular</string>
-            <string>AvenirNext-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -128,30 +127,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wML-0b-fws">
-                                <rect key="frame" x="267" y="225" width="66" height="45"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
-                                <state key="normal" title="Github">
-                                    <color key="titleColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="githubButton:" destination="TKN-Rn-oeU" eventType="touchUpInside" id="iP8-XD-AMJ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Je9-aV-hAz">
-                                <rect key="frame" x="195" y="285" width="210" height="44"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
-                                <state key="normal" title="About TAmbition">
-                                    <color key="titleColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="aboutTAmbition:" destination="TKN-Rn-oeU" eventType="touchUpInside" id="WHf-Bq-i7s"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@TAmbition" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWU-uA-IdS">
+                                <rect key="frame" x="228" y="243" width="145" height="36"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="26"/>
+                                <color key="textColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Y7s-Gp-pni">
+                                <rect key="frame" x="167" y="309" width="266" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wML-0b-fws" userLabel="Github ">
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <state key="normal" image="github">
+                                            <color key="titleColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="githubButton:" destination="TKN-Rn-oeU" eventType="touchUpInside" id="aPA-4L-JpZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYd-bP-hxy" userLabel="Blog">
+                                        <rect key="frame" x="74" y="0.0" width="44" height="44"/>
+                                        <state key="normal" image="blog"/>
+                                        <connections>
+                                            <action selector="blogButton:" destination="TKN-Rn-oeU" eventType="touchUpInside" id="I15-Bd-Uhz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgR-Oi-Sgr" userLabel="Zhihu">
+                                        <rect key="frame" x="148" y="0.0" width="44" height="44"/>
+                                        <state key="normal" image="zhihu"/>
+                                        <connections>
+                                            <action selector="openZhihu:" destination="TKN-Rn-oeU" eventType="touchUpInside" id="qZn-nY-Ule"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Je9-aV-hAz" userLabel="Email">
+                                        <rect key="frame" x="222" y="0.0" width="44" height="44"/>
+                                        <state key="normal" image="mail">
+                                            <color key="titleColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.2196078431372549" green="0.20000000000000001" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Y7s-Gp-pni" firstAttribute="top" secondItem="OWU-uA-IdS" secondAttribute="bottom" constant="30" id="ORG-JV-4LT"/>
+                            <constraint firstItem="OWU-uA-IdS" firstAttribute="top" secondItem="XWP-eU-X0D" secondAttribute="bottom" constant="179" id="Ufi-9d-8YI"/>
+                            <constraint firstItem="OWU-uA-IdS" firstAttribute="centerX" secondItem="MIU-Mk-mvd" secondAttribute="centerX" id="f87-ql-hnX"/>
+                            <constraint firstItem="Y7s-Gp-pni" firstAttribute="centerX" secondItem="MIU-Mk-mvd" secondAttribute="centerX" id="rdH-xd-CnQ"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="SQb-RO-QoI"/>
+                    <navigationItem key="navigationItem" id="SQb-RO-QoI">
+                        <barButtonItem key="rightBarButtonItem" title="OK" id="inP-WU-um9">
+                            <connections>
+                                <action selector="okButtonTapped:" destination="TKN-Rn-oeU" id="3mW-mv-wpo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ilb-xY-Wap" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -237,9 +268,9 @@
                                 <action selector="cancelButton:" destination="3Dm-k9-amT" id="LxS-bs-RhJ"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="TQa-kU-Dex">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="TQa-kU-Dex">
                             <connections>
-                                <action selector="saveButton:" destination="3Dm-k9-amT" id="5N9-bk-LaL"/>
+                                <action selector="doneButton:" destination="3Dm-k9-amT" id="5vv-qv-tPI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -294,6 +325,10 @@
     </scenes>
     <resources>
         <image name="about" width="25" height="25"/>
+        <image name="blog" width="44" height="44"/>
+        <image name="github" width="44" height="44"/>
+        <image name="mail" width="44" height="44"/>
         <image name="setting" width="25" height="25"/>
+        <image name="zhihu" width="44" height="44"/>
     </resources>
 </document>

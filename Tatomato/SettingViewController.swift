@@ -49,7 +49,7 @@ class SettingViewController: UIViewController {
         breakTimeSetting.text = "\(breakTime / 60) min"
     }
     
-    @IBAction func saveButton(sender: UIBarButtonItem) {
+    @IBAction func doneButton(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
