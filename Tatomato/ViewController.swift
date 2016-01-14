@@ -109,6 +109,7 @@ class ViewController: UIViewController {
     
     func showSettingViewController() {
         self.performSegueWithIdentifier("FirstSegue", sender: self)
+        self.performSegueWithIdentifier("SecondSegue", sender: self)
     }
 }
 

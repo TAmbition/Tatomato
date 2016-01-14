@@ -89,7 +89,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Xg9-1g-ZFi" kind="show" id="ScM-NY-8bl"/>
+                                    <segue destination="Xg9-1g-ZFi" kind="custom" identifier="SecondSegue" customClass="SecondSegue" customModule="Tatomato" customModuleProvider="target" id="ScM-NY-8bl"/>
                                 </connections>
                             </button>
                         </subviews>
