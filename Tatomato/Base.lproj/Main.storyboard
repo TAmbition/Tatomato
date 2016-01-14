@@ -115,7 +115,7 @@
             </objects>
             <point key="canvasLocation" x="305" y="367"/>
         </scene>
-        <!--About View Controller-->
+        <!--About-->
         <scene sceneID="Epc-GN-HaK">
             <objects>
                 <viewController id="TKN-Rn-oeU" customClass="AboutViewController" customModule="Tatomato" customModuleProvider="target" sceneMemberID="viewController">
@@ -134,7 +134,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Y7s-Gp-pni">
-                                <rect key="frame" x="167" y="309" width="266" height="44"/>
+                                <rect key="frame" x="204" y="309" width="192" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wML-0b-fws" userLabel="Github ">
                                         <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
@@ -152,18 +152,14 @@
                                             <action selector="blogButton:" destination="TKN-Rn-oeU" eventType="touchUpInside" id="I15-Bd-Uhz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgR-Oi-Sgr" userLabel="Zhihu">
-                                        <rect key="frame" x="148" y="0.0" width="44" height="44"/>
-                                        <state key="normal" image="zhihu"/>
-                                        <connections>
-                                            <action selector="openZhihu:" destination="TKN-Rn-oeU" eventType="touchUpInside" id="qZn-nY-Ule"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Je9-aV-hAz" userLabel="Email">
-                                        <rect key="frame" x="222" y="0.0" width="44" height="44"/>
-                                        <state key="normal" image="mail">
+                                        <rect key="frame" x="148" y="0.0" width="44" height="44"/>
+                                        <state key="normal" image="linkedin_L">
                                             <color key="titleColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="linkedinButton:" destination="TKN-Rn-oeU" eventType="touchUpInside" id="qd4-PM-seN"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -176,7 +172,7 @@
                             <constraint firstItem="Y7s-Gp-pni" firstAttribute="centerX" secondItem="MIU-Mk-mvd" secondAttribute="centerX" id="rdH-xd-CnQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="SQb-RO-QoI">
+                    <navigationItem key="navigationItem" title="About" id="SQb-RO-QoI">
                         <barButtonItem key="rightBarButtonItem" title="OK" id="inP-WU-um9">
                             <connections>
                                 <action selector="okButtonTapped:" destination="TKN-Rn-oeU" id="3mW-mv-wpo"/>
@@ -327,8 +323,7 @@
         <image name="about" width="25" height="25"/>
         <image name="blog" width="44" height="44"/>
         <image name="github" width="44" height="44"/>
-        <image name="mail" width="44" height="44"/>
+        <image name="linkedin_L" width="44" height="44"/>
         <image name="setting" width="25" height="25"/>
-        <image name="zhihu" width="44" height="44"/>
     </resources>
 </document>

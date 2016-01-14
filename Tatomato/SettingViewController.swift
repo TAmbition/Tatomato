@@ -54,7 +54,7 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func cancelButton(sender: UIBarButtonItem) {
-        
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
 

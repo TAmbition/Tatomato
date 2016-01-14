@@ -13,8 +13,6 @@ class AboutViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     
@@ -30,8 +28,8 @@ class AboutViewController: UIViewController {
         openBlog()
     }
     
-    @IBAction func openZhihu(sender: UIButton) {
-        openZhihu()
+    @IBAction func linkedinButton(sender: UIButton) {
+        openLinkedin()
     }
     
     
@@ -45,8 +43,8 @@ class AboutViewController: UIViewController {
         presentViewController(safariController, animated: true, completion: nil)
     }
     
-    func openZhihu() {
-        let safariController = SFSafariViewController(URL: NSURL(string: "https://www.zhihu.com/people/TAmbitionBBB")!)
+    func openLinkedin() {
+        let safariController = SFSafariViewController(URL: NSURL(string: "https://www.linkedin.com/in/tambition")!)
         presentViewController(safariController, animated: true, completion: nil)
     }
     
