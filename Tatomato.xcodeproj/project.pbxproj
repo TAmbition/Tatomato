@@ -15,6 +15,7 @@
 		7A2939D41C3113B700DA508B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A2939D21C3113B700DA508B /* LaunchScreen.storyboard */; };
 		7A52A2BA1C3E1F2C009E82CC /* Stop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7A52A2B91C3E1F2C009E82CC /* Stop.mp3 */; };
 		7A52A2BC1C3EA55A009E82CC /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A52A2BB1C3EA559009E82CC /* SettingViewController.swift */; };
+		7A6E07581C47A2C000115787 /* FirstSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6E07571C47A2C000115787 /* FirstSegue.swift */; };
 		7AE67FC51C31183900F44475 /* Cycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE67FC41C31183900F44475 /* Cycle.swift */; };
 		7AE67FC71C32D88900F44475 /* Pomodoro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE67FC61C32D88900F44475 /* Pomodoro.swift */; };
 /* End PBXBuildFile section */
@@ -30,6 +31,7 @@
 		7A2939D51C3113B700DA508B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A52A2B91C3E1F2C009E82CC /* Stop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Stop.mp3; sourceTree = "<group>"; };
 		7A52A2BB1C3EA559009E82CC /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		7A6E07571C47A2C000115787 /* FirstSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstSegue.swift; sourceTree = "<group>"; };
 		7AE67FC41C31183900F44475 /* Cycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cycle.swift; sourceTree = "<group>"; };
 		7AE67FC61C32D88900F44475 /* Pomodoro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pomodoro.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,12 +68,11 @@
 			isa = PBXGroup;
 			children = (
 				7A2939C91C3113B700DA508B /* AppDelegate.swift */,
-				7A2939CB1C3113B700DA508B /* ViewController.swift */,
-				7AE67FC41C31183900F44475 /* Cycle.swift */,
-				7AE67FC61C32D88900F44475 /* Pomodoro.swift */,
-				7A52A2BB1C3EA559009E82CC /* SettingViewController.swift */,
-				7A1BE1E31C4408FF002130CF /* AboutViewController.swift */,
-				7A2939CD1C3113B700DA508B /* Main.storyboard */,
+				7A6E07511C47A04F00115787 /* FocusViewController */,
+				7A6E07521C47A16700115787 /* View */,
+				7A6E07531C47A18A00115787 /* SettingViewController */,
+				7A6E07541C47A19B00115787 /* AboutViewController */,
+				7A6E07561C47A20D00115787 /* Transition */,
 				7A2939D01C3113B700DA508B /* Assets.xcassets */,
 				7A2939D21C3113B700DA508B /* LaunchScreen.storyboard */,
 				7A2939D51C3113B700DA508B /* Info.plist */,
@@ -85,6 +86,48 @@
 				7A52A2B91C3E1F2C009E82CC /* Stop.mp3 */,
 			);
 			path = Sound;
+			sourceTree = "<group>";
+		};
+		7A6E07511C47A04F00115787 /* FocusViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7A2939CB1C3113B700DA508B /* ViewController.swift */,
+				7AE67FC61C32D88900F44475 /* Pomodoro.swift */,
+			);
+			name = FocusViewController;
+			sourceTree = "<group>";
+		};
+		7A6E07521C47A16700115787 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7A2939CD1C3113B700DA508B /* Main.storyboard */,
+				7AE67FC41C31183900F44475 /* Cycle.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		7A6E07531C47A18A00115787 /* SettingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7A52A2BB1C3EA559009E82CC /* SettingViewController.swift */,
+			);
+			name = SettingViewController;
+			sourceTree = "<group>";
+		};
+		7A6E07541C47A19B00115787 /* AboutViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7A1BE1E31C4408FF002130CF /* AboutViewController.swift */,
+			);
+			name = AboutViewController;
+			sourceTree = "<group>";
+		};
+		7A6E07561C47A20D00115787 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				7A6E07571C47A2C000115787 /* FirstSegue.swift */,
+			);
+			name = Transition;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +208,7 @@
 				7AE67FC71C32D88900F44475 /* Pomodoro.swift in Sources */,
 				7AE67FC51C31183900F44475 /* Cycle.swift in Sources */,
 				7A2939CC1C3113B700DA508B /* ViewController.swift in Sources */,
+				7A6E07581C47A2C000115787 /* FirstSegue.swift in Sources */,
 				7A2939CA1C3113B700DA508B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

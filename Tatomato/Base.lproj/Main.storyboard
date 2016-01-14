@@ -76,7 +76,7 @@
                                 </constraints>
                                 <state key="normal" image="setting"/>
                                 <connections>
-                                    <segue destination="CqL-iH-6Cw" kind="show" id="uKy-xC-5H1"/>
+                                    <segue destination="CqL-iH-6Cw" kind="custom" identifier="FirstSegue" customClass="FirstSegue" customModule="Tatomato" customModuleProvider="target" id="uKy-xC-5H1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sk4-xa-eXv">

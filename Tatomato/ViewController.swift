@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     var timer: NSTimer?
     var endDate: NSDate?
     var pomodoroClass = Pomodoro()
+    let settingViewController =  SettingViewController()
     
     var process: Float {
         get {
@@ -30,6 +31,14 @@ class ViewController: UIViewController {
             timerView.valueProgress = newValue / 100 * 67
             updateUI()
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "showSettingViewController")
+        swipeGestureRecognizer.direction = .Up
+        self.view.addGestureRecognizer(swipeGestureRecognizer)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -42,6 +51,7 @@ class ViewController: UIViewController {
         
     }
 
+    // -MARK: Time
     @IBAction func buttonStartPressed(sender: AnyObject) {
         if pomodoroClass.pomoMode == 0 {
             timer?.invalidate()
@@ -93,6 +103,12 @@ class ViewController: UIViewController {
     func stopTimer() {
         timer?.invalidate()
         timer = nil
+    }
+    
+    // -MARK: Transition
+    
+    func showSettingViewController() {
+        self.performSegueWithIdentifier("FirstSegue", sender: self)
     }
 }
 

@@ -40,6 +40,7 @@ class SettingViewController: UIViewController {
         workTimeSetting.addGestureRecognizer(workTimeLabel)
         breakTimeLabel.addTarget(self, action: "changePickerView:")
         breakTimeSetting.addGestureRecognizer(breakTimeLabel)
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -56,6 +57,8 @@ class SettingViewController: UIViewController {
     @IBAction func cancelButton(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    
 }
 
 extension SettingViewController: UIPickerViewDataSource, UIPickerViewDelegate {
