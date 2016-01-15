@@ -116,6 +116,6 @@ extension SettingViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         default:
             break
         }
-        pickerView.selectRow(0, inComponent: 0, animated: false)
+        pickerView.selectRow(1, inComponent: 0, animated: false)
     }
 }

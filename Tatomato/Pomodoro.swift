@@ -42,6 +42,7 @@ class Pomodoro: NSObject {
     
     var timer: NSTimer?
     var soundPlayer: AVAudioPlayer?
+    var session = AVAudioSession.sharedInstance()
     
     var timerLabel = "25:00"
     var timerMinLabel = "0"
@@ -77,9 +78,17 @@ class Pomodoro: NSObject {
             setDefaults("pomo.breakTime", value: breakTime)
             setDefaults("pomo.longBreakTime", value: longBreakTime)
             setDefaults("pomo.longBreakCount", value: longBreakCount)
-            setDefaults("ppomo.enableTimerSound", value: enableTimerSound)
+            setDefaults("pomo.enableTimerSound", value: enableTimerSound)
         }
         updateDisplay()
+        
+        do {
+            try session.setCategory(AVAudioSessionCategoryPlayAndRecord, withOptions: AVAudioSessionCategoryOptions.MixWithOthers)
+        } catch _ { }
+        
+        do {
+            try session.setActive(true)
+        } catch _ { }
     }
     
     func refreshTime() {

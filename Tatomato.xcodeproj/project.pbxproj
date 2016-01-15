@@ -54,7 +54,6 @@
 			children = (
 				7A2939C81C3113B700DA508B /* Tatomato */,
 				7A2939C71C3113B700DA508B /* Products */,
-				7A52A2B81C3E1F2C009E82CC /* Sound */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,15 +68,12 @@
 		7A2939C81C3113B700DA508B /* Tatomato */ = {
 			isa = PBXGroup;
 			children = (
-				7A2939C91C3113B700DA508B /* AppDelegate.swift */,
 				7A6E07511C47A04F00115787 /* FocusViewController */,
 				7A6E07521C47A16700115787 /* View */,
 				7A6E07531C47A18A00115787 /* SettingViewController */,
 				7A6E07541C47A19B00115787 /* AboutViewController */,
 				7A6E07561C47A20D00115787 /* Transition */,
-				7A2939D01C3113B700DA508B /* Assets.xcassets */,
-				7A2939D21C3113B700DA508B /* LaunchScreen.storyboard */,
-				7A2939D51C3113B700DA508B /* Info.plist */,
+				7A9843711C49052500D25928 /* Support */,
 			);
 			path = Tatomato;
 			sourceTree = "<group>";
@@ -87,7 +83,8 @@
 			children = (
 				7A52A2B91C3E1F2C009E82CC /* Stop.mp3 */,
 			);
-			path = Sound;
+			name = Sound;
+			path = ../Sound;
 			sourceTree = "<group>";
 		};
 		7A6E07511C47A04F00115787 /* FocusViewController */ = {
@@ -133,6 +130,18 @@
 			name = Transition;
 			sourceTree = "<group>";
 		};
+		7A9843711C49052500D25928 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				7A52A2B81C3E1F2C009E82CC /* Sound */,
+				7A2939C91C3113B700DA508B /* AppDelegate.swift */,
+				7A2939D01C3113B700DA508B /* Assets.xcassets */,
+				7A2939D21C3113B700DA508B /* LaunchScreen.storyboard */,
+				7A2939D51C3113B700DA508B /* Info.plist */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -166,6 +175,11 @@
 					7A2939C51C3113B700DA508B = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = NRWN39BHMN;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
