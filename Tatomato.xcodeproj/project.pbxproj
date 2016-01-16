@@ -13,11 +13,11 @@
 		7A2939CF1C3113B700DA508B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A2939CD1C3113B700DA508B /* Main.storyboard */; };
 		7A2939D11C3113B700DA508B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A2939D01C3113B700DA508B /* Assets.xcassets */; };
 		7A2939D41C3113B700DA508B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A2939D21C3113B700DA508B /* LaunchScreen.storyboard */; };
-		7A52A2BA1C3E1F2C009E82CC /* Stop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7A52A2B91C3E1F2C009E82CC /* Stop.mp3 */; };
 		7A52A2BC1C3EA55A009E82CC /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A52A2BB1C3EA559009E82CC /* SettingViewController.swift */; };
 		7A6E07581C47A2C000115787 /* FirstSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6E07571C47A2C000115787 /* FirstSegue.swift */; };
 		7A6E075C1C47E74200115787 /* SecondSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6E075B1C47E74200115787 /* SecondSegue.swift */; };
-		7A9843731C494F3E00D25928 /* Silence.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7A9843721C494F3E00D25928 /* Silence.mp3 */; };
+		7A9843751C4A392C00D25928 /* Stop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7A9843741C4A392C00D25928 /* Stop.mp3 */; };
+		7A9843771C4A394400D25928 /* Silence.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7A9843761C4A394400D25928 /* Silence.mp3 */; };
 		7AE67FC51C31183900F44475 /* Cycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE67FC41C31183900F44475 /* Cycle.swift */; };
 		7AE67FC71C32D88900F44475 /* Pomodoro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE67FC61C32D88900F44475 /* Pomodoro.swift */; };
 /* End PBXBuildFile section */
@@ -31,11 +31,11 @@
 		7A2939D01C3113B700DA508B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A2939D31C3113B700DA508B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A2939D51C3113B700DA508B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7A52A2B91C3E1F2C009E82CC /* Stop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Stop.mp3; sourceTree = "<group>"; };
 		7A52A2BB1C3EA559009E82CC /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		7A6E07571C47A2C000115787 /* FirstSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstSegue.swift; sourceTree = "<group>"; };
 		7A6E075B1C47E74200115787 /* SecondSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondSegue.swift; sourceTree = "<group>"; };
-		7A9843721C494F3E00D25928 /* Silence.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Silence.mp3; sourceTree = "<group>"; };
+		7A9843741C4A392C00D25928 /* Stop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Stop.mp3; sourceTree = "<group>"; };
+		7A9843761C4A394400D25928 /* Silence.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Silence.mp3; sourceTree = "<group>"; };
 		7AE67FC41C31183900F44475 /* Cycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cycle.swift; sourceTree = "<group>"; };
 		7AE67FC61C32D88900F44475 /* Pomodoro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pomodoro.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,8 +83,8 @@
 		7A52A2B81C3E1F2C009E82CC /* Sound */ = {
 			isa = PBXGroup;
 			children = (
-				7A9843721C494F3E00D25928 /* Silence.mp3 */,
-				7A52A2B91C3E1F2C009E82CC /* Stop.mp3 */,
+				7A9843741C4A392C00D25928 /* Stop.mp3 */,
+				7A9843761C4A394400D25928 /* Silence.mp3 */,
 			);
 			name = Sound;
 			path = ../Sound;
@@ -209,8 +209,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A9843731C494F3E00D25928 /* Silence.mp3 in Resources */,
-				7A52A2BA1C3E1F2C009E82CC /* Stop.mp3 in Resources */,
+				7A9843771C4A394400D25928 /* Silence.mp3 in Resources */,
+				7A9843751C4A392C00D25928 /* Stop.mp3 in Resources */,
 				7A2939D41C3113B700DA508B /* LaunchScreen.storyboard in Resources */,
 				7A2939D11C3113B700DA508B /* Assets.xcassets in Resources */,
 				7A2939CF1C3113B700DA508B /* Main.storyboard in Resources */,

@@ -100,7 +100,6 @@ extension SettingViewController: UIPickerViewDataSource, UIPickerViewDelegate {
             defaults.setInteger(pomodoro.breakTime, forKey: "pomo.breakTime")
         }
         defaults.synchronize()
-        print("\(defaults)")
     }
     
     func changePickerView(sender: UITapGestureRecognizer) {
