@@ -83,7 +83,7 @@ class Pomodoro: NSObject {
         updateDisplay()
         
         do {
-            try session.setCategory(AVAudioSessionCategoryPlayAndRecord, withOptions: AVAudioSessionCategoryOptions.MixWithOthers)
+            try session.setCategory(AVAudioSessionCategoryPlayback, withOptions: AVAudioSessionCategoryOptions.MixWithOthers)
         } catch _ { }
         
         do {
@@ -149,20 +149,20 @@ class Pomodoro: NSObject {
                         pomoMode = 3
                         nowTime = longBreakTime
                         print("Pomo Over1")
-                        playSound()
+                        playSound(0)
                         longBreakStart()
                     } else {
                         pomoMode++
                         nowTime = breakTime
                         print("Pomo Over2")
-                        playSound()
+                        playSound(0)
                         breakStart()
                     }
                 } else {
                     pomoMode++
                     nowTime = breakTime
                     print("Pomo Over3")
-                    playSound()
+                    playSound(0)
                     breakStart()
                 }
             } else if pomoMode == 2 {
@@ -174,15 +174,18 @@ class Pomodoro: NSObject {
                     pomoMode = 0
                 }
                 print("Break Over")
-                playSound()
+                playSound(0)
             } else if pomoMode == 3 {
                 pomoMode = 0
                 localCount = 0
                 print("Long Break Over")
                 start()
-                playSound()
+                playSound(0)
             }
         } else {
+            if soundPlayer?.playing != true {
+                playSound(1)
+            }
             if isDebug {
                 nowTime -= 100
             } else {
@@ -225,21 +228,45 @@ class Pomodoro: NSObject {
         
     }
     
-    func playSound() {
+    func playSound(soundIndex: Int) {
+        
+        let silenceSoundPath = NSBundle.mainBundle().pathForResource("Silence", ofType: "mp3")
+        let silenceSoundUrl = NSURL(fileURLWithPath: silenceSoundPath!)
+        
         let stopSoundPath = NSBundle.mainBundle().pathForResource("Stop", ofType: "mp3")
         let stopSoundUrl = NSURL(fileURLWithPath: stopSoundPath!)
         
         stopSound()
         
-        if enableTimerSound {
-            do {
-                soundPlayer = try AVAudioPlayer(contentsOfURL: stopSoundUrl)
-            } catch _ { }
-            soundPlayer!.numberOfLoops = 0
-            soundPlayer!.volume = 0.3
-            soundPlayer!.prepareToPlay()
-            soundPlayer!.play()
+        switch soundIndex {
+        case 0:
+            stopSound()
+            if enableTimerSound {
+                do {
+                    soundPlayer = try AVAudioPlayer(contentsOfURL: stopSoundUrl)
+                } catch _ { }
+                soundPlayer!.numberOfLoops = 0
+                soundPlayer!.volume = 0.3
+                soundPlayer!.prepareToPlay()
+                soundPlayer!.play()
+            }
+        case 1:
+            stopSound()
+            if enableTimerSound {
+                do {
+                    soundPlayer = try AVAudioPlayer(contentsOfURL: silenceSoundUrl)
+                } catch _ { }
+                soundPlayer!.numberOfLoops = -1
+                soundPlayer!.volume = 0.3
+                soundPlayer!.prepareToPlay()
+                soundPlayer!.play()
+            }
+        default:
+            if soundPlayer != nil {
+                soundPlayer!.stop()
+            }
         }
+        
         
     }
     
