@@ -61,6 +61,8 @@ class SettingViewController: UIViewController {
     
 }
 
+    // MARK: - PickerView DataSource & Delegate
+
 extension SettingViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1

@@ -51,7 +51,8 @@ class ViewController: UIViewController {
         
     }
 
-    // -MARK: Time
+    // MARK: - Timer
+    
     @IBAction func buttonStartPressed(sender: AnyObject) {
         if pomodoroClass.pomoMode == 0 {
             timer?.invalidate()
@@ -105,7 +106,7 @@ class ViewController: UIViewController {
         timer = nil
     }
     
-    // -MARK: Transition
+    // MARK: - Transition
     
     func showSettingViewController() {
         self.performSegueWithIdentifier("FirstSegue", sender: self)

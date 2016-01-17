@@ -82,6 +82,8 @@ class Pomodoro: NSObject {
         }
         updateDisplay()
         
+        // 进入后台后无声音频播放
+        
         do {
             try session.setCategory(AVAudioSessionCategoryPlayback, withOptions: AVAudioSessionCategoryOptions.MixWithOthers)
         } catch _ { }
@@ -90,6 +92,8 @@ class Pomodoro: NSObject {
             try session.setActive(true)
         } catch _ { }
     }
+    
+    // MARK: - 实时更新 Setting 中设置的值
     
     func refreshTime() {
         pomoTime = getDefault("pomo.pomoTime") as! Int
