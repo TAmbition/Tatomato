@@ -270,8 +270,6 @@ class Pomodoro: NSObject {
                 soundPlayer!.stop()
             }
         }
-        
-        
     }
     
     func stopSound() {

@@ -12,6 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let registerNotificationSettings = "registerNotificationSettings"
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -25,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // 修改 UIStatusBar 颜色
         UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
+        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
         
         return true
     }

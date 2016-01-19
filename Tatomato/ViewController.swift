@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     
     let defaults = NSUserDefaults.standardUserDefaults()
     let tapToStop = UITapGestureRecognizer()
-    let localNotification = UILocalNotification()
+    
     
     var timer: NSTimer?
     var endDate: NSDate?
@@ -66,6 +66,13 @@ class ViewController: UIViewController {
         tapToStop.addTarget(self, action: "showAlert:")
         startButton.addGestureRecognizer(tapToStop)
         
+        let localNotification = UILocalNotification()
+        let seconds = NSDate(timeIntervalSinceNow: Double(pomodoroClass.pomoTime))
+        localNotification.fireDate = seconds
+        localNotification.timeZone = NSTimeZone.defaultTimeZone()
+        localNotification.alertBody = "TAmbition"
+        localNotification.soundName = UILocalNotificationDefaultSoundName
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
     
     func showAlert(sender: UITapGestureRecognizer) {
@@ -76,6 +83,7 @@ class ViewController: UIViewController {
         let stopAction = UIAlertAction(title: "Stop", style: .Default, handler: { _ in
                 self.stopPomo()
                 self.pomodoroClass.updateDisplay()
+                UIApplication.sharedApplication().cancelAllLocalNotifications()
         })
         alertController.addAction(stopAction)
         
