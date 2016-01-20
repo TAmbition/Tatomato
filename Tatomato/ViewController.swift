@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     let defaults = NSUserDefaults.standardUserDefaults()
     let tapToStop = UITapGestureRecognizer()
     
-    
     var timer: NSTimer?
     var endDate: NSDate?
     var pomodoroClass = Pomodoro()

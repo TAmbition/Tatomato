@@ -93,6 +93,7 @@ class Pomodoro: NSObject {
         } catch _ { }
     }
     
+    
     // MARK: - 实时更新 Setting 中设置的值
     
     func refreshTime() {
@@ -101,6 +102,9 @@ class Pomodoro: NSObject {
         
         updateDisplay()
     }
+    
+    
+    // MARK: - 显示设置
     
     func updateDisplay() {
         switch pomoMode {
@@ -143,6 +147,8 @@ class Pomodoro: NSObject {
             timerLabel = minute + ":" + second
         }
     }
+    
+    // MARK: - 计时器状态
     
     func updateTimer(timer: NSTimer) {
         if nowTime <= 0 {

@@ -22,7 +22,7 @@ class SecondSegue: UIStoryboardSegue {
         let window = UIApplication.sharedApplication().keyWindow
         window?.insertSubview(secondVCView, aboveSubview: firstVCView)
         
-        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: [.CurveLinear], animations: { () -> Void in
+        UIView.animateWithDuration(0.45, delay: 0.0, usingSpringWithDamping: 0.69, initialSpringVelocity: 0.1, options: [.CurveLinear], animations: { () -> Void in
             secondVCView.frame = CGRectOffset(secondVCView.frame, 0.0, -screenHeight)
             }) { (finished: Bool) -> Void in
                 self.sourceViewController.presentViewController(self.destinationViewController, animated: false, completion: nil)
