@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         // 修改 UINavigation Bar 颜色 & 字体
+        
         UINavigationBar.appearance().barTintColor = UIColor(red: 56.0/255.0, green: 51.0/255.0, blue: 76.0/255.0, alpha: 1.0)
         UINavigationBar.appearance().tintColor = UIColor(red: 235.0/255.0, green: 235.0/255.0, blue: 235.0/255.0, alpha: 1.0)
         
@@ -24,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // 修改 UIStatusBar 颜色
+        
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
         let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil)

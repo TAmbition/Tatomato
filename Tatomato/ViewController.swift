@@ -75,7 +75,7 @@ class ViewController: UIViewController {
     }
     
     func showAlert(sender: UITapGestureRecognizer) {
-        let alertController = UIAlertController(title: "TAmbition", message: "Are you fuckin' sure", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "Stop Timer?", message: "Do you want to stop this Timer?", preferredStyle: .Alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
         alertController.addAction(cancelAction)
         

@@ -1,7 +1,5 @@
 # Tatomato
 
-# Tatomato
-
 ### 关于 Tatomato
 
 Tatomato 是一个用 Swift 编写的 [番茄工作法](https://zh.wikipedia.org/wiki/%E7%95%AA%E8%8C%84%E5%B7%A5%E4%BD%9C%E6%B3%95) App，计时器参考了 [Pomodoro Timer](https://github.com/megabitsenmzq/PomodoroTimer)。这个小项目从 2015.12.28 开始，基本在业余时间完成，很感谢 [@江南的悲伤](https://github.com/SergioChan) 在遇见奇怪问题时帮我指点迷津。
@@ -46,7 +44,6 @@ Tatomato 是一个用 Swift 编写的 [番茄工作法](https://zh.wikipedia.org
 ### 草稿 & 截图
 ![biu1][1]
 ![biu2][2]
-![biu3][3]
 ![MainScreen][4]
 ![Setting][5]
 ![About][6]
@@ -54,7 +51,6 @@ Tatomato 是一个用 Swift 编写的 [番茄工作法](https://zh.wikipedia.org
 
   [1]: http://static.zybuluo.com/TAmbition/9oa042vyi0sazpdcy1u4zwal/biu1.jpg
   [2]: http://static.zybuluo.com/TAmbition/via97z29k1g79kdc7o3jp618/biu2.jpg
-  [3]: http://static.zybuluo.com/TAmbition/qmxeo0t5bejiov8qrxq9ujai/biu3.jpg
   [4]: http://static.zybuluo.com/TAmbition/klp3g3nye3lb9y6cr6x7wzmf/MainScreen.PNG
   [5]: http://static.zybuluo.com/TAmbition/22s05kke76o45e5t4x57e5bh/Setting.PNG
   [6]: http://static.zybuluo.com/TAmbition/s889yiqszh3nx40nwjxxu63p/About.PNG

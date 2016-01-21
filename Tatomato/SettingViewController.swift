@@ -20,8 +20,8 @@ class SettingViewController: UIViewController {
     let breakTimeLabel = UITapGestureRecognizer()
     let defaults = NSUserDefaults.standardUserDefaults()
     
-    var workTimes = [25, 30, 45, 60, 90]
-    var breakTimes = [5, 10, 25]
+    var workTimes = [25, 45, 60, 90]
+    var breakTimes = [5, 10, 25, 45]
     
     var pomodoro = Pomodoro()
     var chooseWorkLabel = true
@@ -105,7 +105,6 @@ extension SettingViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func changePickerView(sender: UITapGestureRecognizer) {
-        print("OK")
         let label = sender.view!
         switch label {
         case workTimeSetting:

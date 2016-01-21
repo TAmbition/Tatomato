@@ -34,7 +34,7 @@ class AboutViewController: UIViewController {
     
     
     func openGithub() {
-        let safariController = SFSafariViewController(URL: NSURL(string: "https://github.com/TAmbition")!)
+        let safariController = SFSafariViewController(URL: NSURL(string: "https://github.com/TAmbition/Tatomato")!)
         presentViewController(safariController, animated: true, completion: nil)
     }
     
