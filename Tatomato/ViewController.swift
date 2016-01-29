@@ -69,7 +69,7 @@ class ViewController: UIViewController {
         let seconds = NSDate(timeIntervalSinceNow: Double(pomodoroClass.pomoTime))
         localNotification.fireDate = seconds
         localNotification.timeZone = NSTimeZone.defaultTimeZone()
-        localNotification.alertBody = "TAmbition"
+        localNotification.alertBody = "Time for work is up!"
         localNotification.soundName = UILocalNotificationDefaultSoundName
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }

@@ -256,7 +256,7 @@ class Pomodoro: NSObject {
                     soundPlayer = try AVAudioPlayer(contentsOfURL: stopSoundUrl)
                 } catch _ { }
                 soundPlayer!.numberOfLoops = 0
-                soundPlayer!.volume = 0.3
+                soundPlayer!.volume = 0.4
                 soundPlayer!.prepareToPlay()
                 soundPlayer!.play()
             }
