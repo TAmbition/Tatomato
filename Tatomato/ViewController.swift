@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     
     var timer: NSTimer?
     var endDate: NSDate?
+    var localNotification: UILocalNotification?
     var pomodoroClass = Pomodoro()
     let settingViewController =  SettingViewController()
     
@@ -52,7 +53,7 @@ class ViewController: UIViewController {
 
     // MARK: - Timer
     
-    @IBAction func buttonStartPressed(sender: AnyObject) {
+    @IBAction func buttonStartPressed(sender: AnyObject?) {
         if pomodoroClass.pomoMode == 0 {
             timer?.invalidate()
             timer = nil
@@ -65,13 +66,16 @@ class ViewController: UIViewController {
         tapToStop.addTarget(self, action: "showAlert:")
         startButton.addGestureRecognizer(tapToStop)
         
-        let localNotification = UILocalNotification()
+        localNotification = UILocalNotification()
         let seconds = NSDate(timeIntervalSinceNow: Double(pomodoroClass.pomoTime))
-        localNotification.fireDate = seconds
-        localNotification.timeZone = NSTimeZone.defaultTimeZone()
-        localNotification.alertBody = "Time for work is up!"
-        localNotification.soundName = UILocalNotificationDefaultSoundName
-        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        localNotification!.fireDate = seconds
+        localNotification!.timeZone = NSTimeZone.defaultTimeZone()
+        localNotification!.alertBody = "Time for work is up!"
+        localNotification!.soundName = UILocalNotificationDefaultSoundName
+        localNotification!.category = "Start_Category"
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification!)
+        
+        
     }
     
     func showAlert(sender: UITapGestureRecognizer) {

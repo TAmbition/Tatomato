@@ -70,6 +70,7 @@
 		7A2939C81C3113B700DA508B /* Tatomato */ = {
 			isa = PBXGroup;
 			children = (
+				7A2939C91C3113B700DA508B /* AppDelegate.swift */,
 				7A6E07511C47A04F00115787 /* FocusViewController */,
 				7A6E07521C47A16700115787 /* View */,
 				7A6E07531C47A18A00115787 /* SettingViewController */,
@@ -137,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				7A52A2B81C3E1F2C009E82CC /* Sound */,
-				7A2939C91C3113B700DA508B /* AppDelegate.swift */,
 				7A2939D01C3113B700DA508B /* Assets.xcassets */,
 				7A2939D21C3113B700DA508B /* LaunchScreen.storyboard */,
 				7A2939D51C3113B700DA508B /* Info.plist */,
