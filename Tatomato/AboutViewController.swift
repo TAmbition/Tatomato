@@ -11,8 +11,30 @@ import SafariServices
 
 class AboutViewController: UIViewController {
 
+    @IBOutlet weak var github: UIButton!
+    @IBOutlet weak var blog: UIButton!
+    @IBOutlet weak var linkedIn: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let translate = CGAffineTransformMakeTranslation(0.0, 500.0)
+        github.transform = translate
+        blog.transform = translate
+        linkedIn.transform = translate
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: [], animations: {
+                self.github.transform = CGAffineTransformIdentity
+            }, completion: nil)
+        UIView.animateWithDuration(0.5, delay: 0.2, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: [], animations: {
+                self.blog.transform = CGAffineTransformIdentity
+            }, completion: nil)
+        UIView.animateWithDuration(0.5, delay: 0.4, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: [], animations: {
+                self.linkedIn.transform = CGAffineTransformIdentity
+            }, completion: nil)
     }
     
     

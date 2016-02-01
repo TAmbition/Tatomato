@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "showSettingViewController")
+        let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "showViewController")
         swipeGestureRecognizer.direction = .Up
         self.view.addGestureRecognizer(swipeGestureRecognizer)
     }
@@ -63,7 +63,8 @@ class ViewController: UIViewController {
         pomodoroClass.start()
         print("Pomodoro Started")
         
-        tapToStop.addTarget(self, action: "showAlert:")
+        startButton.setTitle("Stop", forState: UIControlState.Normal)
+        tapToStop.addTarget(self, action: "stopTimer:")
         startButton.addGestureRecognizer(tapToStop)
         
         localNotification = UILocalNotification()
@@ -72,27 +73,16 @@ class ViewController: UIViewController {
         localNotification!.timeZone = NSTimeZone.defaultTimeZone()
         localNotification!.alertBody = "Time for work is up!"
         localNotification!.soundName = UILocalNotificationDefaultSoundName
-        localNotification!.category = "Start_Category"
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification!)
         
         
     }
     
-    func showAlert(sender: UITapGestureRecognizer) {
-        let alertController = UIAlertController(title: "Stop Timer?", message: "Do you want to stop this Timer?", preferredStyle: .Alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
-        alertController.addAction(cancelAction)
-        
-        let stopAction = UIAlertAction(title: "Stop", style: .Default, handler: { _ in
-                self.stopPomo()
-                self.pomodoroClass.updateDisplay()
-                UIApplication.sharedApplication().cancelAllLocalNotifications()
-        })
-        alertController.addAction(stopAction)
-        
-        presentViewController(alertController, animated: true, completion: { _ in
-            self.startButton.removeGestureRecognizer(self.tapToStop)
-        })
+    func stopTimer(sender: UITapGestureRecognizer) {
+        stopPomo()
+        pomodoroClass.updateDisplay()
+        startButton.removeGestureRecognizer(tapToStop)
+        startButton.setTitle("Start", forState: UIControlState.Normal)
     }
     
     func pomoing(timer: NSTimer) {
@@ -119,9 +109,9 @@ class ViewController: UIViewController {
     
     // MARK: - Transition
     
-    func showSettingViewController() {
+    func showViewController() {
         self.performSegueWithIdentifier("FirstSegue", sender: self)
-        self.performSegueWithIdentifier("SecondSegue", sender: self)
     }
+
 }
 

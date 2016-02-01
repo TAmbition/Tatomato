@@ -89,7 +89,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Xg9-1g-ZFi" kind="custom" identifier="SecondSegue" customClass="SecondSegue" customModule="Tatomato" customModuleProvider="target" id="ScM-NY-8bl"/>
+                                    <segue destination="Xg9-1g-ZFi" kind="show" identifier="" id="ScM-NY-8bl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -128,13 +128,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@TAmbition" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWU-uA-IdS">
-                                <rect key="frame" x="228" y="243" width="145" height="36"/>
+                                <rect key="frame" x="228" y="150" width="145" height="36"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="26"/>
                                 <color key="textColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Y7s-Gp-pni">
-                                <rect key="frame" x="204" y="309" width="192" height="44"/>
+                                <rect key="frame" x="204" y="206" width="192" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wML-0b-fws" userLabel="Github ">
                                         <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
@@ -166,10 +166,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.2196078431372549" green="0.20000000000000001" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Y7s-Gp-pni" firstAttribute="top" secondItem="OWU-uA-IdS" secondAttribute="bottom" constant="30" id="ORG-JV-4LT"/>
-                            <constraint firstItem="OWU-uA-IdS" firstAttribute="top" secondItem="XWP-eU-X0D" secondAttribute="bottom" constant="179" id="Ufi-9d-8YI"/>
-                            <constraint firstItem="OWU-uA-IdS" firstAttribute="centerX" secondItem="MIU-Mk-mvd" secondAttribute="centerX" id="f87-ql-hnX"/>
-                            <constraint firstItem="Y7s-Gp-pni" firstAttribute="centerX" secondItem="MIU-Mk-mvd" secondAttribute="centerX" id="rdH-xd-CnQ"/>
+                            <constraint firstItem="Y7s-Gp-pni" firstAttribute="centerX" secondItem="MIU-Mk-mvd" secondAttribute="centerX" id="Dci-UB-Nhu"/>
+                            <constraint firstItem="Y7s-Gp-pni" firstAttribute="top" secondItem="OWU-uA-IdS" secondAttribute="bottom" constant="20" id="Oop-XI-8mw"/>
+                            <constraint firstItem="OWU-uA-IdS" firstAttribute="centerX" secondItem="MIU-Mk-mvd" secondAttribute="centerX" id="Yqb-bi-hRS"/>
+                            <constraint firstItem="OWU-uA-IdS" firstAttribute="top" secondItem="XWP-eU-X0D" secondAttribute="bottom" constant="86" id="yr3-HF-5M2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="About" id="SQb-RO-QoI">
@@ -179,6 +179,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="blog" destination="HYd-bP-hxy" id="f9Z-yy-9An"/>
+                        <outlet property="github" destination="wML-0b-fws" id="Q2w-fh-Tva"/>
+                        <outlet property="linkedIn" destination="Je9-aV-hAz" id="hFX-UD-RSj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ilb-xY-Wap" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -305,6 +310,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xg9-1g-ZFi" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="EjZ-xv-r8O"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZFE-Fv-BwW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -13,11 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var viewController: ViewController?
-    let registerNotificatonSettings = "registerNotificationSettings"
+//    let registerNotificatonSettings = "registerNotificationSettings"
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        registerDefaultUserDefaults()
+//        registerDefaultUserDefaults()
         
         // 修改 UINavigation Bar 颜色 & 字体
         
@@ -32,28 +32,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
-        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil)
-        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
-        
         return true
     }
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         print("didReceiveLocalNotification \(notification)")
-    }
-    
-    
-    
-    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
-        
-        print(identifier)
-        
-        if let identifier = identifier {
-            if identifier == "Start_Action" {
-                viewController!.buttonStartPressed(nil)
-            }
-        }
-        completionHandler()
     }
     
 
@@ -78,26 +61,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-extension AppDelegate {
-    func registerDefaultUserDefaults() {
-        if NSUserDefaults.standardUserDefaults().boolForKey(registerNotificatonSettings) {
-            let workAction = UIMutableUserNotificationAction()
-            workAction.identifier = "Work_Action"
-            workAction.title = "Start Work"
-            workAction.activationMode = .Background
-            
-            let category = UIMutableUserNotificationCategory()
-            category.setActions([workAction], forContext: .Default)
-            category.identifier = "Start_Category"
-            
-            let categories = Set([category])
-            
-            let notificationSettings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Alert, UIUserNotificationType.Sound], categories: categories)
-            UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
-            
-            NSUserDefaults.standardUserDefaults().setBool(false, forKey: registerNotificatonSettings)
-            NSUserDefaults.standardUserDefaults().synchronize()
-            
-        }
-    }
-}
