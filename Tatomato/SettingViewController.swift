@@ -105,6 +105,7 @@ extension SettingViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func changePickerView(sender: UITapGestureRecognizer) {
+        
         let label = sender.view!
         switch label {
         case workTimeSetting:
@@ -116,6 +117,7 @@ extension SettingViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         default:
             break
         }
+        
         pickerView.selectRow(1, inComponent: 0, animated: false)
     }
 }

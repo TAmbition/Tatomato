@@ -13,11 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var viewController: ViewController?
-//    let registerNotificatonSettings = "registerNotificationSettings"
-    
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-//        registerDefaultUserDefaults()
         
         // 修改 UINavigation Bar 颜色 & 字体
         
