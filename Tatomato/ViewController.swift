@@ -74,8 +74,6 @@ class ViewController: UIViewController {
         localNotification!.alertBody = "Time for work is up!"
         localNotification!.soundName = UILocalNotificationDefaultSoundName
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification!)
-        
-        
     }
     
     func stopTimer(sender: UITapGestureRecognizer) {

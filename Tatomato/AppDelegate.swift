@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var viewController: ViewController?
+    var audioPlayer: AVAudioPlayer!
+    var audioEngine = AVAudioEngine()
+    var bgTask: UIBackgroundTaskIdentifier!
+    
+    let app = UIApplication.sharedApplication()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -43,9 +49,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
+        print("Application will enter background.")
         
+        self.bgTask = app.beginBackgroundTaskWithExpirationHandler() {
+            self.app.endBackgroundTask(self.bgTask)
+            self.bgTask = UIBackgroundTaskInvalid
+        }
+        
+        NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: "applyForMoreTime", userInfo: nil, repeats: true)
+        
+        NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "doSomething", userInfo: nil, repeats: true)
     }
 
+    func doSomething() {
+        print("Doing something. \(app.backgroundTimeRemaining)")
+    }
+    
+    func applyForMoreTime() {
+        if app.backgroundTimeRemaining < 30 {
+            let filePathUrl = NSURL(string: NSBundle.mainBundle().pathForResource("Silence", ofType: "mp3")!)!
+            
+            do {
+                try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, withOptions: AVAudioSessionCategoryOptions.MixWithOthers)
+            } catch _ {
+                
+            }
+            self.audioPlayer = try? AVAudioPlayer(contentsOfURL: filePathUrl)
+            self.audioEngine.reset()
+            self.audioPlayer.play()
+            
+            self.app.endBackgroundTask(self.bgTask)
+            self.bgTask = app.beginBackgroundTaskWithExpirationHandler() {
+                self.app.endBackgroundTask(self.bgTask)
+                self.bgTask = UIBackgroundTaskInvalid
+            }
+        }
+    }
+    
     func applicationWillEnterForeground(application: UIApplication) {
         
     }
